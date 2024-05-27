@@ -1,0 +1,9 @@
+projetscript/
+├── public/
+│   ├── index.html
+│   ├── tailwind.css
+├── tailwind/
+│   ├── main.css
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json

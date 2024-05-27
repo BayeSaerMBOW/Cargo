@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "projetscript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build": "tailwindcss -i tailwind/main.css -o public/tailwind.css",
+    "dev": "lite-server & tsc --watch & tailwindcss -i tailwind/main.css -o public/tailwind.css --watch ",
+    "pro": "lite-server",
+    "watch": "watch \"npm run build\" ./dist"
+  },
+  "keywords": [
+    "ts",
+    "js",
+    "correction"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "daisyui": "^4.11.1",
+    "lite-server": "^2.6.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}

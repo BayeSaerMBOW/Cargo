@@ -1,0 +1,83 @@
+*<script>
+    // partie produits 
+
+    document.getElementById('type-produit').addEventListener('change', function () {
+        const toxiciteField = document.getElementById('form-toxicity-container');
+        if (this.value === 'chimique') {
+            toxiciteField.style.display = 'block';
+        } else {
+            toxiciteField.style.display = 'none';
+        }
+    });
+    document.getElementById('type-produit').addEventListener('change', function () {
+        const materielField = document.getElementById('materiel');
+        if (this.value === 'materielle') {
+            materielField.style.display = 'block';
+        } else {
+            materielField.style.display = 'none';
+        }
+    });
+
+    document.getElementById('sidebarToggle').addEventListener('click', function () {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar.classList.contains('w-20')) {
+            sidebar.classList.remove('w-20');
+            sidebar.classList.add('w-80');
+        } else {
+            sidebar.classList.remove('w-80');
+            sidebar.classList.add('w-20');
+        }
+    });
+
+    document.getElementById('openFormButton').addEventListener('click', function () {
+        document.getElementById('hover').style.display = 'block';
+        document.getElementById('popupForme').style.display = 'block';
+    });
+
+    document.getElementById('closeFormButton').addEventListener('click', function () {
+        document.getElementById('hover').style.display = 'none';
+        document.getElementById('popupForme').style.display = 'none';
+    });
+
+    document.getElementById('hover').addEventListener('click', function () {
+        document.getElementById('popupForme').style.display = 'none';
+        document.getElementById('hover').style.display = 'none';
+    });
+
+    document.getElementById('type-produit').addEventListener('change', function () {
+        const toxiciteField = document.getElementById('form-toxicity-container');
+        if (this.value === 'chimique') {
+            toxiciteField.style.display = 'block';
+        } else {
+            toxiciteField.style.display = 'none';
+        }
+    });
+    document.getElementById('type-produit').addEventListener('change', function () {
+        const materielField = document.getElementById('materiel');
+        if (this.value === 'materielle') {
+            materielField.style.display = 'block';
+        } else {
+            materielField.style.display = 'none';
+        }
+    });
+</script>
+<script>
+    // partie cargaisons
+    document.getElementById('search-button').addEventListener('click', function () {
+        document.getElementById('popupForm').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    });
+
+    document.getElementById('overlay').addEventListener('click', function () {
+        document.getElementById('popupForm').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    });
+
+    document.getElementById('toggleViewBtn').addEventListener('click', function () {
+        document.getElementById('cards-view').classList.toggle('hidden');
+        document.getElementById('list-view').classList.toggle('hidden');
+        document.getElementById('toggleViewIcon').classList.toggle('fa-list');
+        document.getElementById('toggleViewIcon').classList.toggle('fa-th');
+    });
+
+</script> 

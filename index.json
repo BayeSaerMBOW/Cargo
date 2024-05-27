@@ -1,0 +1,72 @@
+{
+    "cargaisons": [
+        {
+            "aerienne": [],
+            "maritime": [],
+            "terrestre": []
+        }
+    ],
+    "users": [
+        {
+            "nom": "NIANG",
+            "prenom": "ALY TALL",
+            "email": "aly@gmail.com",
+            "password": "$2y$10$wZeyFYBHggqrsAmTwqJfleltGHNO5zrvY9Ty7KxhjIcBlhWgzfn7S",
+            "status": "ADMIN",
+            "image": "icone.png"
+        },
+        {
+            "nom": "WANE",
+            "prenom": "BAILLO",
+            "email": "wane@gmail.com",
+            "password": "$2y$10$4p84iaRPJe4karXly8cHx.NrMX.jScsYmtMd8NNpocgGX\/rvCEypi",
+            "status": "ADMIN",
+            "image": "icone.png"
+        },
+        {
+            "nom": "DIEDHIOU",
+            "prenom": "OUSSEYNOU",
+            "email": "ousseynou@gmail.com",
+            "password": "$2y$10$O\/LtO9PgwLscOWQv.oIebu1VCXTBiYFdr2rW.JHR2dJk9C3ASb4uy",
+            "status": "ADMIN",
+            "image": "icone.png"
+        }
+    ],
+    "produits": [
+        {
+            "alimentaires": [
+                {
+                    "id": 1,
+                    "libelle": "Pomme",
+                    "prix": 10,
+                    "quantite": 10,
+                    "image": "pomme.jpg"
+                },
+                {
+                    "id": 2,
+                    "libelle": "Banane",
+                    "prix": 20,
+                    "quantite": 10,
+                    "image": "banane.jpg"
+                },
+                {
+                    "id": 3,
+                    "libelle": "Orange",
+                    "prix": 30,
+                    "quantite": 10,
+                    "image": "orange.jpg"
+                },
+                {
+                    "id": 4,
+                    "libelle": "Poire",
+                    "prix": 40,
+                    "quantite": 10,
+                    "image": "poire.jpg"
+                }
+            ],
+            "materielles": [],
+            "chimique": []
+        }
+        
+    ]
+}
