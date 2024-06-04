@@ -1,8 +1,26 @@
 <?php
+function saveFile($data) {
+    $data = json_encode($data, JSON_PRETTY_PRINT);
+    file_put_contents('./data.json', $data);
+}
+
 header('Content-Type: application/json');
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents('php://input'), true);
+    //secho json_encode($data);
+    
+    saveFile($data);
+
+    // Recharger les données pour les renvoyer
+  /*   $data = file_get_contents('./data.json');
+    echo $data; */
+} else {
+    $data = file_get_contents('./data.json');
+    echo $data;
+}
 // Simulate processing received data
-$data = json_decode(file_get_contents('php://input'), true);
+/* $data = json_decode(file_get_contents('php://input'), true);
 
 // Simply echo the received data back
 echo json_encode($data);
@@ -27,5 +45,5 @@ $new_json_data = json_encode($data, JSON_PRETTY_PRINT);
 file_put_contents($file_path, $new_json_data);
 
 // Répondre avec un message de confirmation
-echo 'Données écrites dans le fichier JSON.';
+echo 'Données écrites dans le fichier JSON.'; */
 ?>

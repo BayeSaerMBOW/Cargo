@@ -1,22 +1,35 @@
-{
-    "cargaison":[
-        {
-        
-        "numero": "CRG001",
-        "poidsMax": 5000,
-        "produits": "Paris",
-        "prixTotal": "1000",
-        "lieuDepart": "Londres",
-        "lieuArrivee": "Paris",
-        "distance": "400",
-        "typeCargaison": "maritime",
-        "etatAvancement": "en cours",
-        "DateDepart": "17/12/2024",
-         "DateArrivee": "17 / 08 / 2024"
-        }
-    ]
-     }
-    
-        
-          
-    
+[
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+]

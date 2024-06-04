@@ -1,11 +1,15 @@
 </main>
 <footer class="w-full h-16 bg-white flex justify-center items-center">
-    <h2 class="text-blue-600 text-3xl">®MBOW NGALLA</h2>
+    <h2 class="text-blue-600 text-3xl">®MBOW GP</h2>
 </footer>
 </div>
 </div>
 
 <style>
+    .error{
+        visibility: hidden; 
+        color: red;
+    }
 #cargaisonForm {
             max-width: 600px;
             margin: 0 auto;
@@ -32,9 +36,7 @@
             cursor: pointer;
         }
 
-        button:hover {
-          /*   background-color: #0056b3; */
-        }
+       /*  */
 
         #mapContainer {
             display: none;
@@ -64,62 +66,77 @@
 <div class="popup-form" id="popupForm">
     <h3 class="text-3xl text-blue-600 font-bold mb-6">Détails de la Cargaison</h3>
     <form id="cargaisonForm">
-                    <div class="mb-4">
-                        <label class="block text-black mb-2">Libellé</label>
-                        <input type="text" name="numero" class="w-full p-2 border rounded-md" />
-                    </div>
-                    <div class="mb-2">
-            <label class="block text-black mb-2">Lieu de Départ</label>
-            <input type="text" name="lieuDepart" class="w-full p-2 border rounded-md" readonly />
-            <button type="button" id="selectDepart" class="w-full bg-blue-500 text-white p-2 rounded-lg mt-2">Sélectionner sur la carte</button>
-        </div>
-        <div class="mb-2">
-            <label class="block text-black mb-2">Lieu d'Arrivée</label>
-            <input type="text" name="lieuArrivee" class="w-full p-2 border rounded-md" readonly />
-            <button type="button" id="selectArrivee" class="w-full bg-blue-500 text-white p-2 rounded-lg mt-2">Sélectionner sur la carte</button>
-        </div>
-        <div class="mb-2">
-            <label class="block text-black mb-2">Distance (en Km)</label>
-            <input type="number" name="distance" class="w-full p-2 border rounded-md" />
-        </div>
-        <div id="map"  style="display:none;"></div>
-                    <div class="mb-2">
-                        <label class="block text-black mb-2">Type de Cargaison</label>
-                        <select name="typeCargaison" id="typeCargaison" class="w-full p-2 border rounded-md">
-                            <option value="Maritime">Maritime</option>
-                            <option value="Aérienne">Aérienne</option>
-                            <option value="Routière">Routière</option>
-                        </select>
-                    </div>
-                    <div class="mb-2">
-                        <label class="block text-black mb-2">État d'Avancement</label>
-                        <select name="etatAvancement" class="w-full p-2 border rounded-md">
-                           <!--  <option value="En cours">En cours</option>
-                            <option value="Terminé">Terminé</option> -->
-                            <option value="En attente">En attente</option>
-                        </select>
-                    </div>
-                    <div class="mb-2">
-                        <label class="block text-black mb-2">État Global</label>
-                        <select name="etatGlobal" class="w-full p-2 border rounded-md">
-                           <!--  <option value="Fermé">Fermé</option> -->
-                            <option value="Ouvert">Ouvert</option>
-                        </select>
-                    </div>
-                    <div class="mb-2">
-            <label class="block text-black mb-2">date de Départ</label>
-            <input type="date" name="DateDepart" class="w-full p-2 border rounded-md"  />
+    <div class="mb-4">
+        <label class="block text-black mb-2">Libellé</label>
+        <span class="error" id="errorNumero">le champs est requis</span>
+        <input type="text" id="numero" name="numero" class="w-full p-2 border rounded-md" />
+        <div id="error-numero" class="text-red-500"></div>  
+    </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">Lieu de Départ</label>
+        <span class="error" id="errorLieuDepart"></span>
+        <input type="text" name="lieuDepart" id="lieuDepart" class="w-full p-2 border rounded-md" readonly />
+        <button type="button" id="selectDepart" class="w-full bg-blue-500 text-white p-2 rounded-lg mt-2">Sélectionner sur la carte</button>
+        <div id="error-lieuDepart" class="text-red-500"></div>  
+    </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">Lieu d'Arrivée</label>
+        <span class="error" id="errorLieuArrivee">le champs est requis</span>
+        <input type="text" name="lieuArrivee" id="lieuArrivee" class="w-full p-2 border rounded-md"  />
+        <button type="button" id="selectArrivee" class="w-full bg-blue-500 text-white p-2 rounded-lg mt-2">Sélectionner sur la carte</button>
+        <div id="error-lieuArrivee" class="text-red-500"></div>  
+    </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">Distance (en Km)</label>
+        <span class="error" id="errorDistance">le champs est requis</span>
+        <input type="text" readonly name="distance" id="distance" class="w-full p-2 border rounded-md"/>
+        <div id="error-distance" class="text-red-500"></div>  
+    
+    </div>
+    <div id="map" style="display:none;"></div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">Type de Cargaison</label>
+        <select name="typeCargaison" id="typeCargaison" class="w-full p-2 border rounded-md">
+            <option value="Maritime">Maritime</option>
+            <option value="Aérienne">Aérienne</option>
+            <option value="Routière">Routière</option>
+        </select>
+    </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">État d'Avancement</label>
+        <span class="error" id="errorEtatAvancement">le champs est requis</span>
+        <select name="etatAvancement" id="etatAvancement" class="w-full p-2 border rounded-md">
+            <option value="En attente">En attente</option>
+            <option value="En cours">En cours</option>
+            <option value="Terminer">Terminer</option>
+        </select>
+    </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">État Global</label>
+        <span class="error" id="errorEtatGlobal">le champs est requis</span>
+        <select name="etatGlobal" id="etatGlobal" class="w-full p-2 border rounded-md">
+            <option value="Ouvert">Ouvert</option>
             
-        </div>
-        <div class="mb-2">
-            <label class="block text-black mb-2">date d'Arrivée</label>
-            <input type="date" name="DateArrivee" class="w-full p-2 border rounded-md"  />
-            
-        </div>
-                    <div class="col-span-2">
-                        <button id="Enregistrer" class="w-full bg-blue-500 text-white p-2 rounded-lg">Enregistrer</button>
-                    </div>
-                </form>
+            <option value="ferme">Ferme</option>
+        </select>
+    </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">date de Départ</label>
+        <span class="error"  id="errorDateDepart">le champs est requis</span>
+        <input type="date" name="DateDepart" id="DateDepart" class="w-full p-2 border rounded-md" required />
+        <div id="error-DateDepart" class="text-red-500"></div> 
+    </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">date d'Arrivée</label>
+        <span class="error" id="errorDateArrivee"></span>
+        <input type="date" name="DateArrivee" id="DateArrivee" class="w-full p-2 border rounded-md" required />
+        <div id="error-DateArrivee" class="text-red-500"></div> 
+    </div>
+    <div class="col-span-2">
+        <button type="submit" id="Enregistrer" class="w-full bg-blue-500 text-white p-2 rounded-lg">Enregistrer</button>
+    </div>
+</form>
+
 </div>
 
 
@@ -127,48 +144,94 @@
 <div class="overlaye" id="hover"></div>
 <div class="popup-forme" id="popupForme">
     <div class="flex justify-between items-center">
-    <h3 id="form-title" class="text-3xl font-bold mb-6">Ajouter produits</h3>
-    <button id="closeFormButton" class="bg-red-500 text-white p-2 rounded-full self-end">
-        <i class="fa-solid fa-times"></i>
-    </button>
+        <h3 id="form-title" class="text-3xl font-bold mb-6">Ajouter produits</h3>
+        <button id="closeFormButton" class="bg-red-500 text-white p-2 rounded-full self-end">
+            <i class="fa-solid fa-times"></i>
+        </button>
     </div>
-    <form id="produits-form" action="#">
-        <div class="mb-4">
-            <label for="produits-type-select" class="block text-blue-700">Choisie Cargaisons disponible</label>
-            <select id="produits-type-select" class="w-full p-2 border rounded-md">
-            </select>
-        </div>
-        <div class="mb-4">
-            <label for="type-produit" class="block text-blue-700">Type de produits</label>
-            <select id="type-produit" class="w-full p-2 border rounded-md" aria-placeholder="choisissez une produits">
-                <option value="alimentaire">Alimentaire</option>
-                <option value="materielle">Materielles</option>
-                <option value="chimique">Chimique</option>
-            </select>
-        </div>
-        <div id="form-discount-container" class="mb-4">
-            <label id="form-toxicity-label" class="block text-blue-700">Pourcentage de réduction</label>
-            <input id="form-toxicity-input" type="number" min="1" max="100" class="w-full p-2 border rounded-md" />
-        </div>
-        <div id="form-toxicity-container" class="mb-4 hidden">
-            <label id="form-discount-label" class="block text-blue-700">Taux de toxicite</label>
-            <input id="form-discount-input" type="number" min="1" max="10" class="w-full p-2 border rounded-md" />
-        </div>
-        <div class="mb-4 hidden" id="materiel">
-            <label for="type-materiel" class="block text-blue-700">Type de produits</label>
-            <select id="type-materiel" class="w-full p-2 border rounded-md" aria-placeholder="choisissez une produits">
-                <option value="fragile">Fragile</option>
-                <option value="incassable">Incassable</option>
-            </select>
-        </div>
-        <div id="form-validity-container" class="mb-4">
-            <label id="form-validity-label" class="block text-blue-700">Validité (jours)</label>
-            <input id="form-validity-input" type="number" min="1" max="365" class="w-full p-2 border rounded-md" />
-        </div>
-        <div id="form-submit-container" class="mt-6">
-            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md">Ajouter produits</button>
-        </div>
-    </form>
+    <form id="produits-form" method="post">
+    <div class="mb-4">
+        <label for="type-produit" class="block text-blue-700">Type de produits</label>
+        <select id="type-produit" class="w-full p-2 border rounded-md" aria-placeholder="choisissez une produits" name="typeproduit">
+            <option value="alimentaire">Alimentaire</option>
+            <option value="materielle">Materielles</option>
+            <option value="chimique">Chimique</option>
+        </select>
+    </div>
+    <div id="form-validity-container" class="mb-4">
+        <label id="form-validity-label" class="block text-blue-700">Tarif</label>
+        <input id="form-validity-input" type="number" min="1" max="365" class="w-full p-2 border rounded-md" name="validity" />
+    </div>
+    <div id="form-discount-container" class="mb-4">
+        <label id="form-toxicity-label" class="block text-blue-700">Pourcentage de réduction</label>
+        <input id="form-toxicity-input" type="number" min="1" max="100" class="w-full p-2 border rounded-md" name="discount" />
+    </div>
+    <div id="form-toxicity-container" class="mb-4 hidden">
+        <label id="form-discount-label" class="block text-blue-700">Taux de toxicité</label>
+        <input id="form-discount-input" type="number" min="1" max="10" class="w-full p-2 border rounded-md" name="toxicity" />
+    </div>
+    <div class="mb-4 hidden" id="materiel">
+        <label for="type-materiel" class="block text-blue-700">Type de produits</label>
+        <select id="type-materiel" class="w-full p-2 border rounded-md" aria-placeholder="choisissez une produits" name="type-materiel">
+            <option value="fragile">Fragile</option>
+            <option value="incassable">Incassable</option>
+        </select>
+    </div>
+    <div id="form-validity-container" class="mb-4">
+        <label id="form-validity-label" class="block text-blue-700">Validité (jours)</label>
+        <input id="form-validity-input" type="number" min="1" max="365" class="w-full p-2 border rounded-md" name="validity" />
+    </div>
+
+    <!-- Champs pour saisir les détails du client -->
+    <div class="mb-4">
+        <label for="client-name" class="block text-blue-700">Nom du client</label>
+        <input id="client-name" type="text" class="w-full p-2 border rounded-md" name="client-name" />
+    </div>
+    <div class="mb-4">
+        <label for="client-lastname" class="block text-blue-700">Prénom du client</label>
+        <input id="client-lastname" type="text" class="w-full p-2 border rounded-md" name="client-lastname" />
+    </div>
+    <div class="mb-4">
+        <label for="client-address" class="block text-blue-700">Adresse du client</label>
+        <input id="client-address" type="text" class="w-full p-2 border rounded-md" name="client-address" />
+    </div>
+    <div class="mb-4">
+        <label for="client-phone" class="block text-blue-700">Numéro de téléphone du client</label>
+        <input id="client-phone" type="tel" class="w-full p-2 border rounded-md" name="client-phone" />
+    </div>
+    <div class="mb-4">
+        <label for="client-email" class="block text-blue-700">E-mail du client</label>
+        <input id="client-email" type="email" class="w-full p-2 border rounded-md" name="client-email" />
+    </div>
+    <!-- Champs pour saisir les détails du destinataire -->
+    <div class="mb-4">
+        <label for="recipient-name" class="block text-blue-700">Nom du destinataire</label>
+        <input id="recipient-name" type="text" class="w-full p-2 border rounded-md" name="recipient-name" />
+    </div>
+    <div class="mb-4">
+        <label for="recipient-lastname" class="block text-blue-700">Prénom du destinataire</label>
+        <input id="recipient-lastname" type="text" class="w-full p-2 border rounded-md" name="recipient-lastname" />
+    </div>
+    <div class="mb-4">
+        <label for="recipient-address" class="block text-blue-700">Adresse du destinataire</label>
+        <input id="recipient-address" type="text" class="w-full p-2 border rounded-md" name="recipient-address" />
+    </div>
+    <div class="mb-4">
+        <label for="recipient-phone" class="block text-blue-700">Numéro de téléphone du destinataire</label>
+        <input id="recipient-phone" type="tel" class="w-full p-2 border rounded-md" name="recipient-phone" />
+    </div>
+    <div class="mb-4">
+        <label for="recipient-email" class="block text-blue-700">E-mail du destinataire</label>
+        <input id="recipient-email" type="email" class="w-full p-2 border rounded-md" name="recipient-email" />
+    </div>
+    <input type="hidden" name="product" value="product">
+    <div id="form-submit-container" class="mt-6">
+        <button class="w-full bg-blue-500 text-white p-2 rounded-md">Ajouter produits</button>
+    </div>
+</form>
+
+</div>
+
 </div>
 
 <script type="module" src="./dist/test.js"></script>
@@ -204,7 +267,7 @@
         }
     });
 
-    document.getElementById('openFormButton').addEventListener('click', function () {
+    document.getElementById('openFormButton')?.addEventListener('click', function () {
         document.getElementById('hover').style.display = 'block';
         document.getElementById('popupForme').style.display = 'block';
     });

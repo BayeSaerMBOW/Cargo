@@ -11,6 +11,22 @@ export class Produit {
         return `Libelle: ${this.libelle}, Poids: ${this.poids}`;
     }
 }
+export class Client {
+    constructor(nom, prenom, email, telephone) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+    }
+}
+export class destinataire {
+    constructor(nom, prenom, email, telephone) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+    }
+}
 export class ProduitAlimentaire extends Produit {
     calculerPrix() {
         return this.poids * 100;
@@ -41,7 +57,7 @@ export class ProduitMateriel extends Produit {
     }
 }
 export class Cargaison {
-    constructor(numero, poidsMax, trajet, distance, type) {
+    constructor(numero, poidsMax, trajet, distance, type, codeCargo) {
         this.produits = [];
         this.numero = numero;
         this.poidsMax = poidsMax;
@@ -51,6 +67,7 @@ export class Cargaison {
         this.prixTotal = 0;
         this.etatAvancement = 'En attente';
         this.etatGlobal = 'Ouvert';
+        this.codeCargo = codeCargo;
     }
     get getprixTotal() {
         return this.prixTotal;
@@ -80,17 +97,17 @@ export class Cargaison {
     }
 }
 export class CargaisonAerienne extends Cargaison {
-    constructor(numero, poidsMax, trajet, distance) {
-        super(numero, poidsMax, trajet, distance, 'Aerienne');
+    constructor(numero, poidsMax, trajet, distance, codeCargo) {
+        super(numero, poidsMax, trajet, distance, 'Aerienne', codeCargo);
     }
 }
 export class CargaisonMaritime extends Cargaison {
-    constructor(numero, poidsMax, trajet, distance) {
-        super(numero, poidsMax, trajet, distance, 'Maritime');
+    constructor(numero, poidsMax, trajet, distance, codeCargo) {
+        super(numero, poidsMax, trajet, distance, 'Maritime', codeCargo);
     }
 }
 export class CargaisonRoutiere extends Cargaison {
-    constructor(numero, poidsMax, trajet, distance) {
-        super(numero, poidsMax, trajet, distance, 'Routiere');
+    constructor(numero, poidsMax, trajet, distance, codeCargo) {
+        super(numero, poidsMax, trajet, distance, 'Routiere', codeCargo);
     }
 }

@@ -6,6 +6,7 @@ session_start();
 // } else {
     $page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
     $pagePath = "../templates/pages/$page.html.php";
+    var_dump($data);
 
     if (file_exists($pagePath)) {
         include "../templates/menu/main.html.php";

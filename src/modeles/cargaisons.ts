@@ -18,6 +18,33 @@ export class Produit {
         return `Libelle: ${this.libelle}, Poids: ${this.poids}`;
     }
 }
+export class Client {
+    protected nom: string;
+    protected prenom: string;
+    protected email: string;
+    protected telephone: string;
+
+    constructor(nom: string, prenom: string, email: string, telephone: string) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+    }
+}
+export class destinataire {
+    protected nom: string;
+    protected prenom: string;
+    protected email: string;
+    protected telephone: string;
+
+    constructor(nom: string, prenom: string, email: string, telephone: string) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+    }
+}
+
 
 export class ProduitAlimentaire extends Produit {
     calculerPrix(): number {
@@ -69,8 +96,10 @@ export class Cargaison {
     protected type: string;
     protected etatAvancement: string;
     protected etatGlobal: string;
+    protected codeCargo: string;
 
-    constructor(numero: string, poidsMax: number, trajet: string, distance: number, type: string) {
+
+    constructor(numero: string, poidsMax: number, trajet: string, distance: number, type: string,codeCargo: string) {
         this.numero = numero;
         this.poidsMax = poidsMax;
         this.trajet = trajet;
@@ -79,6 +108,7 @@ export class Cargaison {
         this.prixTotal = 0;
         this.etatAvancement = 'En attente';
         this.etatGlobal = 'Ouvert';
+        this.codeCargo=codeCargo;
     }
     get getprixTotal(): number {
         return this.prixTotal;
@@ -112,20 +142,20 @@ export class Cargaison {
 }
 
 export class CargaisonAerienne extends Cargaison {
-    constructor(numero: string, poidsMax: number, trajet: string, distance: number) {
-        super(numero, poidsMax, trajet, distance, 'Aerienne');
+    constructor(numero: string, poidsMax: number, trajet: string, distance: number,codeCargo: string) {
+        super(numero, poidsMax, trajet, distance, 'Aerienne',codeCargo);
     }
 }
 
 export class CargaisonMaritime extends Cargaison {
-    constructor(numero: string, poidsMax: number, trajet: string, distance: number) {
-        super(numero, poidsMax, trajet, distance, 'Maritime');
+    constructor(numero: string, poidsMax: number, trajet: string, distance: number,codeCargo: string) {
+        super(numero, poidsMax, trajet, distance, 'Maritime',codeCargo);
     }
 }
 
 export class CargaisonRoutiere extends Cargaison {
-    constructor(numero: string, poidsMax: number, trajet: string, distance: number) {
-        super(numero, poidsMax, trajet, distance, 'Routiere');
+    constructor(numero: string, poidsMax: number, trajet: string, distance: number,codeCargo: string) {
+        super(numero, poidsMax, trajet, distance, 'Routiere',codeCargo);
     }
 }
 

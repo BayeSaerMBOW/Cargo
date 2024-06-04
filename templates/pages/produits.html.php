@@ -39,8 +39,8 @@
                                 F cfa</span>
                         </div>
                     </div>
-                    <button id="produits-item-1-button"
-                        class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Appliquer</button>
+                  <a href="http://www.baye.saer.mbow.com:8500/gestionCargo/public/index.php?page=cargaisons"> <button id="produits-item-1-button"
+                        class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md">Appliquer</button></a> 
                 </div>
                 <!-- Ajouter d'autres produits ici, en suivant la même structure -->
             </div>
