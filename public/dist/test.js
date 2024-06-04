@@ -302,41 +302,41 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(filteredCargaisons);
             displayCargos(filteredCargaisons);
             afficherDetails();
-            // const tbody = document.getElementById('tbody');
-            // if (tbody) {
-            //   tbody.innerHTML = '';
-            //   filteredCargaisons.forEach(cargaison => {
-            //     tbody.innerHTML += `
-            //     <tr class="bg-white hover:bg-gray-100 transition duration-300 ease-in-out">
-            //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.numero}</td>
-            //     <td class="border px-4 py-2 text-gray-600">${cargaison.typeCargaison}</td>
-            //     <td class="border px-4 py-2">
-            //     <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full">${cargaison.distance}</span>
-            //     <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full"></span>
-            //     </td>
-            //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.lieuDepart}</td>
-            //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.lieuArrivee}</td>
-            //     <td class="border px-4 py-2">
-            //     <span
-            //     class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">${cargaison.etatGlobal}</span>
-            //     </td>
-            //     <td class="border px-4 py-2">
-            //     <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full">${cargaison.etatAvancement}</span>
-            //     </td>
-            //     <td class="border px-4 py-2">
-            //     <div class="w-full bg-gray-200 rounded-full h-10 relative">
-            //             <div class="bg-purple-600 h-10 rounded-full flex justify-center items-center"
-            //                 style="width: 80%">
-            //                 <span class="font-bold text-center text-white">80%</span>
-            //                 </div>
-            //                 </div>
-            //     </td>
-            //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.DateDepart}</td>
-            //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.DateArrivee}</td>
-            // </tr>
-            //     `;
-            //   });
-            // }
+            /*       // const tbody = document.getElementById('tbody');
+                  // if (tbody) {
+                  //   tbody.innerHTML = '';
+                  //   filteredCargaisons.forEach(cargaison => {
+                  //     tbody.innerHTML += `
+                  //     <tr class="bg-white hover:bg-gray-100 transition duration-300 ease-in-out">
+                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.numero}</td>
+                  //     <td class="border px-4 py-2 text-gray-600">${cargaison.typeCargaison}</td>
+                  //     <td class="border px-4 py-2">
+                  //     <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full">${cargaison.distance}</span>
+                  //     <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full"></span>
+                  //     </td>
+                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.lieuDepart}</td>
+                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.lieuArrivee}</td>
+                  //     <td class="border px-4 py-2">
+                  //     <span
+                  //     class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">${cargaison.etatGlobal}</span>
+                  //     </td>
+                  //     <td class="border px-4 py-2">
+                  //     <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full">${cargaison.etatAvancement}</span>
+                  //     </td>
+                  //     <td class="border px-4 py-2">
+                  //     <div class="w-full bg-gray-200 rounded-full h-10 relative">
+                  //             <div class="bg-purple-600 h-10 rounded-full flex justify-center items-center"
+                  //                 style="width: 80%">
+                  //                 <span class="font-bold text-center text-white">80%</span>
+                  //                 </div>
+                  //                 </div>
+                  //     </td>
+                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.DateDepart}</td>
+                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.DateArrivee}</td>
+                  // </tr>
+                  //     `;
+                  //   });
+                  // } */
         });
     });
     // Initially display all cargaisons
@@ -454,7 +454,7 @@ function afficherDetails() {
                 let produitsHtml = '';
                 cargo.produits.forEach((produit) => {
                     console.log(produit.typeproduit, produit.quantite);
-                    produitsHtml += `<span>Produit: ${produit.typeproduit}, Quantité: ${produitsHtml}</span> <br/>`;
+                    produitsHtml += `<span>Produit: ${produit.typeproduit}, Validité: ${produit.validity}</span> <br/>`;
                 });
                 let modal = `
           <div class="flex justify-between w-full text-red-700">

@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
       displayCargos(filteredCargaisons);
       afficherDetails();
 
-      // const tbody = document.getElementById('tbody');
+/*       // const tbody = document.getElementById('tbody');
       // if (tbody) {
       //   tbody.innerHTML = '';
       //   filteredCargaisons.forEach(cargaison => {
@@ -406,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // </tr>
       //     `;
       //   });
-      // }
+      // } */
     });
   });
 
@@ -579,7 +579,7 @@ function afficherDetails() {
         let produitsHtml = '';
         cargo.produits.forEach((produit:any) => {
           console.log(produit.typeproduit,produit.quantite);
-          produitsHtml += `<span>Produit: ${produit.typeproduit}, Quantité: ${produitsHtml}</span> <br/>`;
+          produitsHtml += `<span>Produit: ${produit.typeproduit}, Validité: ${produit.validity}</span> <br/>`;
         });
 
         let modal = `

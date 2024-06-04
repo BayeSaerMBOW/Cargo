@@ -192,7 +192,7 @@
         "distance": 1695,
         "typeCargaison": "Routi\u00e8re",
         "etatAvancement": "En attente",
-        "etatGlobal": "Ouvert",
+        "etatGlobal": "Ferme",
         "DateDepart": "1996-12-07",
         "DateArrivee": "2007-05-31",
         "codeCargo": "SAER34"
@@ -312,7 +312,7 @@
         "distance": 2526.54,
         "typeCargaison": "Maritime",
         "etatAvancement": "En attente",
-        "etatGlobal": "Ferme",
+        "etatGlobal": "Ouvert",
         "DateDepart": "2024-06-08",
         "DateArrivee": "2024-06-15",
         "codeCargo": "SAER17"
