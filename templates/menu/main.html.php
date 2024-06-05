@@ -7,6 +7,9 @@
     <script src="https://kit.fontawesome.com/d2ba3c872c.js" crossorigin="anonymous"></script>
     <!-- <script src="/var/www/html/projetScript/public/dist/test.js" type="module" defer></script> -->
     <script defer src="../../dist/test.js" type="module"></script> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+
     <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

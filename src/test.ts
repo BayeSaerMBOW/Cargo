@@ -467,24 +467,6 @@ interface Cargo {
 
 let cargaisons: Cargo[];
 
-// Function to load cargos from a JSON file
-// function loadCargos(): void {
-//   fetch("/gestionCargo/public/json.php") // Assurez-vous que ce chemin est correct
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       } else {
-//         throw new Error("Erreur lors de la récupération des cargaisons");
-//       }
-//     })
-//     .then((data: Cargo[]) => {
-//       cargaisons = data; // Store the fetched cargos
-//       console.log(data);
-//       displayCargos(cargaisons); // Display cargos initially
-//     })
-//     .catch((error) => console.error("Error:", error));
-// }
-// Fonction pour afficher les cargaisons dans le tableau
 interface Cargo {
   codeCargo: string;
   typeCargaison: string;
@@ -516,7 +498,7 @@ function displayCargos(cargaisons: Cargo[]): void {
         <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">${cargo.etatGlobal}</span>
       </td>
       <td class="border px-4 py-2">
-        <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full">${cargo.etatAvancement}</span>
+        <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full" id="etatAvancement${cargo.codeCargo}">${cargo.etatAvancement}</span>
       </td>
       <td class="border px-4 py-2">
         <div class="w-full bg-gray-200 rounded-full h-10 relative">
@@ -528,19 +510,29 @@ function displayCargos(cargaisons: Cargo[]): void {
       <td class="border px-4 py-2 text-purple-600 font-bold">${cargo.DateDepart}</td>
       <td class="border px-4 py-2 text-purple-600 font-bold">${cargo.DateArrivee}</td>
       <td class="border px-4 py-2">
-        <div style="display:flex; gap:2;">
-          <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded saer" data-id="${cargo.codeCargo}">
+        <div style="display:flex; gap:4; w-20">
+          <button class="bg-purple-500 hover:bg-purple-700 w-10 h-20 text-white font-bold py-2 px-4 rounded saer" data-id="${cargo.codeCargo}">
             Ajouter produit
           </button>
-          <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ouvert')">
+          <button class="bg-green-500 hover:bg-green-700  w-10 h-20 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ouvert')">
             Ouvert
           </button>
-          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ferme')">
+          <button class="bg-red-500 hover:bg-red-700  w-10 h-20 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ferme')">
             Ferme
           </button>
-          <button id="details" data-modal-target="default-modal" data-code="${cargo.codeCargo}" data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+          <button id="details" data-modal-target="default-modal" data-code="${cargo.codeCargo}"   data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-10 h-20" type="button">
           DETAILS
     </button>
+    <form class="max-w-sm mx-auto">
+ 
+  <select id="etat" data-code="${cargo.codeCargo}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-10 h-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+   
+    <option value="EnAttente"> EnAttente</option>
+    <option value="Encours">Encours</option>
+    <option value="Terminer">Terminer</option>
+  
+  </select>
+</form>
 
         </div>
       </td>
@@ -559,8 +551,31 @@ function displayCargos(cargaisons: Cargo[]): void {
       document.getElementById("popupForme")!.style.display = "block";
     });
   });
+  changerEtat()
 }
-
+//fonction
+function changerEtat(){
+  let etat=document.querySelectorAll('#etat') as NodeListOf<HTMLSelectElement>;
+  etat.forEach((el:HTMLSelectElement)=>{
+    let codeCargo=el.getAttribute('data-code');
+    
+    let index:any;
+    db.forEach((data,ind) => {
+      if (data.codeCargo == codeCargo) {
+        index = ind;
+      }
+    });
+    el.addEventListener("change", () =>{
+      console.log(el);
+      
+      db[index].etatAvancement = el.selectedOptions[0].value;
+      fetchAll()
+      let etatAvancement=document.getElementById('etatAvancement'+codeCargo) as HTMLElement;
+      etatAvancement.innerText=el.selectedOptions[0].value;
+    })
+  
+  })
+}
 function afficherDetails() {
   let details = document.querySelectorAll('#details');
 
@@ -686,24 +701,28 @@ async function getProduct() {
 
     console.log(db);
 
-    try {
-      const response = await fetch("../public/dist/data.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(db),
-      });
+    fetchAll()
+  }
+}
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+async function fetchAll(){
+  try {
+    const response = await fetch("../public/dist/data.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(db),
+    });
 
-      const data = await response.text();
-      console.log(data);
-    } catch (error) {
-      console.error("Error:", error);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
+
+    const data = await response.text();
+    console.log(data);
+  } catch (error) {
+    console.error("Error:", error);
   }
 }
 
@@ -742,16 +761,3 @@ if (nextButton) {
   });
 }
 
-//ajouter produit
-
-// let formSubmtContainer = document.querySelector(
-//   "#form-submit-container"
-// ) as HTMLElement;
-// console.log(formSubmtContainer);
-
-// formSubmtContainer.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   console.log("dajk");
-
-//   getProduct();
-// });

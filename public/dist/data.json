@@ -86,7 +86,7 @@
         "lieuArrivee": "Lieu inconnu (-13.207860470525487, 27.24609375)",
         "distance": 1408.9,
         "typeCargaison": "Maritime",
-        "etatAvancement": "En attente",
+        "etatAvancement": "EnAttente",
         "etatGlobal": "Ferme",
         "DateDepart": "2024-06-11",
         "DateArrivee": "2024-06-26",
@@ -130,6 +130,153 @@
                 "recipient-phone": "+1 (192) 262-1119",
                 "recipient-email": "vulemegonu@mailinator.com",
                 "product": "product"
+            },
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "",
+                    ""
+                ],
+                "discount": "",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "",
+                "client-lastname": "",
+                "client-address": "",
+                "client-phone": "",
+                "client-email": "",
+                "recipient-name": "",
+                "recipient-lastname": "",
+                "recipient-address": "",
+                "recipient-phone": "",
+                "recipient-email": "",
+                "product": "product"
+            },
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "",
+                    ""
+                ],
+                "discount": "",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "",
+                "client-lastname": "",
+                "client-address": "",
+                "client-phone": "",
+                "client-email": "",
+                "recipient-name": "",
+                "recipient-lastname": "",
+                "recipient-address": "",
+                "recipient-phone": "",
+                "recipient-email": "",
+                "product": "product"
+            },
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "",
+                    ""
+                ],
+                "discount": "",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "",
+                "client-lastname": "",
+                "client-address": "",
+                "client-phone": "",
+                "client-email": "",
+                "recipient-name": "",
+                "recipient-lastname": "",
+                "recipient-address": "",
+                "recipient-phone": "",
+                "recipient-email": "",
+                "product": "product"
+            },
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "",
+                    ""
+                ],
+                "discount": "",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "",
+                "client-lastname": "",
+                "client-address": "",
+                "client-phone": "",
+                "client-email": "",
+                "recipient-name": "",
+                "recipient-lastname": "",
+                "recipient-address": "",
+                "recipient-phone": "",
+                "recipient-email": "",
+                "product": "product"
+            },
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "",
+                    ""
+                ],
+                "discount": "",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "",
+                "client-lastname": "",
+                "client-address": "",
+                "client-phone": "",
+                "client-email": "",
+                "recipient-name": "",
+                "recipient-lastname": "",
+                "recipient-address": "",
+                "recipient-phone": "",
+                "recipient-email": "",
+                "product": "product"
+            },
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "",
+                    ""
+                ],
+                "discount": "",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "",
+                "client-lastname": "",
+                "client-address": "",
+                "client-phone": "",
+                "client-email": "",
+                "recipient-name": "",
+                "recipient-lastname": "",
+                "recipient-address": "",
+                "recipient-phone": "",
+                "recipient-email": "",
+                "product": "product"
+            },
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "",
+                    ""
+                ],
+                "discount": "",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "",
+                "client-lastname": "",
+                "client-address": "",
+                "client-phone": "",
+                "client-email": "",
+                "recipient-name": "",
+                "recipient-lastname": "",
+                "recipient-address": "",
+                "recipient-phone": "",
+                "recipient-email": "",
+                "product": "product"
             }
         ],
         "prixTotal": 0,
@@ -137,7 +284,7 @@
         "lieuArrivee": "Lieu inconnu (71.76706746403704, -41.13281250000001)",
         "distance": 3166.36,
         "typeCargaison": "A\u00e9rienne",
-        "etatAvancement": "En attente",
+        "etatAvancement": "Terminer",
         "etatGlobal": "Ferme",
         "DateDepart": "2004-06-08",
         "DateArrivee": "1983-08-31",
@@ -191,8 +338,8 @@
         "lieuArrivee": "Bimbwi (-5.932972207945653, 26.894531250000004)",
         "distance": 1695,
         "typeCargaison": "Routi\u00e8re",
-        "etatAvancement": "En attente",
-        "etatGlobal": "Ferme",
+        "etatAvancement": "Encours",
+        "etatGlobal": "Ouvert",
         "DateDepart": "1996-12-07",
         "DateArrivee": "2007-05-31",
         "codeCargo": "SAER34"
@@ -430,5 +577,19 @@
         "DateDepart": "2024-06-18",
         "DateArrivee": "2024-06-26",
         "codeCargo": "SAER63"
+    },
+    {
+        "poidsMax": 0,
+        "produits": [],
+        "prixTotal": 0,
+        "lieuDepart": "Djanet (23.915970370510227, 11.77734375)",
+        "lieuArrivee": "Lieu inconnu (19.010190294396075, 8.964843750000002)",
+        "distance": 618.22,
+        "typeCargaison": "Maritime",
+        "etatAvancement": "Terminer",
+        "etatGlobal": "Ouvert",
+        "DateDepart": "2024-07-12",
+        "DateArrivee": "2024-06-12",
+        "codeCargo": "SAER77"
     }
 ]
