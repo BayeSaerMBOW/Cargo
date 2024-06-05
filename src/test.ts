@@ -99,6 +99,7 @@ submit.addEventListener("click", async (event) => {
 
   valider.validerEtTraiterFormulaire;
 
+
   const cargaison = {
     poidsMax: Number(formData.get("poidsMax")),
     produits: [],
@@ -119,6 +120,7 @@ submit.addEventListener("click", async (event) => {
     return;
   }
   if (!lieuDepart) {
+
     showError("lieuDepart", "Veuillez saisir un lieu de départ");
     return;
   }
@@ -439,6 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const recupButton = document.querySelectorAll(".saer");
       recupButton.forEach((button) => {
         button.addEventListener("click", (event) => {
+
           id = button.getAttribute("data-id")!;
           console.log(id);
 
@@ -514,13 +517,13 @@ function displayCargos(cargaisons: Cargo[]): void {
           <button class="bg-purple-500 hover:bg-purple-700 w-10 h-20 text-white font-bold py-2 px-4 rounded saer" data-id="${cargo.codeCargo}">
             Ajouter produit
           </button>
-          <button class="bg-green-500 hover:bg-green-700  w-10 h-20 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ouvert')">
+          <button class=" bg-yellow-100 hover:bg-green-700  w-10 h-20 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ouvert')">
             Ouvert
           </button>
           <button class="bg-red-500 hover:bg-red-700  w-10 h-20 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ferme')">
             Ferme
           </button>
-          <button id="details" data-modal-target="default-modal" data-code="${cargo.codeCargo}"   data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-10 h-20" type="button">
+          <button id="details" data-code="${cargo.codeCargo}"  data-modal-target="default-modal"   data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-10 h-20" type="button">
           DETAILS
     </button>
     <form class="max-w-sm mx-auto">

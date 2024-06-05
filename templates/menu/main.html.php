@@ -9,6 +9,9 @@
     <script defer src="../../dist/test.js" type="module"></script> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+
 
     <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
