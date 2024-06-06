@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d2ba3c872c.js" crossorigin="anonymous"></script>
     <!-- <script src="/var/www/html/projetScript/public/dist/test.js" type="module" defer></script> -->
-    <script defer src="../../dist/test.js" type="module"></script> 
+    <script defer src="../../dist/test.js" type="module"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
 
 
     <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon">
@@ -86,6 +87,18 @@
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+        @keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-in-from-right {
+  animation: slideInFromRight 3s ease-in-out;
+}
     </style>
 </head>
 
@@ -138,4 +151,3 @@
                 </div>
             </header>
             <main id="main-content" class="flex-1 p-4 overflow-auto hide-scrollbar ">
-

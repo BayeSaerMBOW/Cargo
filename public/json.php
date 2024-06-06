@@ -1,8 +1,14 @@
 <?php
 header('Content-Type: application/json');
 
+
 // Path to data.json file
 $dataFile = __DIR__ . '/dist/data.json';
+
+
+// Exemple d'utilisation
+
+
 
 // Function to read data from the JSON file
 function readData($dataFile) {
@@ -55,7 +61,23 @@ try {
                     if (in_array($etat, ['Ouvert', 'Ferme'])) {
                         $currentEtat = strtolower($cargo['etatGlobal']); // Convertir l'état actuel en minuscules
                         $newEtat = strtolower($etat); // Convertir le nouvel état en minuscules
-
+                        //ajouter des valeurs
+                        // Ajouter des journaux pour vérifier les valeurs des variables
+                        error_log("Current Etat: $currentEtat");
+                        error_log("New Etat: $newEtat");
+                        error_log("Cargo EtatGlobal: " . strtolower($cargo['etatGlobal']));
+                        if ($newEtat == 'ferme' && ($currentEtat == 'ferme' || strtolower($cargo['etatGlobal']) == 'perdue')) {
+                            echo json_encode(['success' => false, 'message' => 'Une cargaison fermée ou perdue ne peut pas être fermée ni ouverte à nouveau.']);
+                            exit;
+                        }
+                        if ($newEtat == 'ouvert' && ($currentEtat == 'ouvert' || strtolower($cargo['etatGlobal']) == 'perdue')) {
+                            echo json_encode(['success' => false, 'message' => 'Une cargaison fermée ou perdue ne peut pas être fermée ni ouverte à nouveau.']);
+                            exit;
+                        }
+                        if ($newEtat == 'ouvert' && ($currentEtat == 'ferme' || strtolower($cargo['etatGlobal']) == 'perdue')) {
+                            echo json_encode(['success' => false, 'message' => 'Une cargaison fermée ou perdue ne peut pas être fermée ni ouverte à nouveau.']);
+                            exit;
+                        }
                         // Vérifier si l'état actuel est déjà le même que le nouvel état
                         if ($currentEtat === 'ferme' && $newEtat === 'ferme') {
                             echo json_encode(['success' => false, 'message' => 'La cargaison est déjà fermée.']);
@@ -67,6 +89,25 @@ try {
                             // Mettre à jour l'état de la cargaison
                             $cargo['etatGlobal'] = $etat;
                         }
+                                     if ($cargo['etatGlobal'] == 'Ferme' && $cargo['etatAvancement'] === 'Encours') {
+                            echo json_encode(['success' => false, 'message' => 'Une cargaison en cours ne peut pas être fermée.']);
+                            exit;
+                        }
+                     
+                        if ($cargo['etatGlobal'] == 'Ouvert' && $cargo['etatAvancement'] === 'Encours') {
+                            echo json_encode(['success' => false, 'message' => 'Une cargaison en cours ne peut pas être ouverte.']);
+                            exit;
+                        }
+                        if ($cargo['etatGlobal']  === 'Ferme' && ($cargo['etat'] === 'ferme' || $cargo['statut'] === 'Perdu')) {
+                            echo json_encode(['success' => false, 'message' => 'Une cargaison fermée ou perdue ne peut pas être fermée ni ouverte à nouveau.']);
+                            exit;
+                        }
+                        if ($cargo['etatGlobal'] == 'Perdue' && $cargo['etatAvancement'] === 'Encours') {
+                            echo json_encode(['success' => false, 'message' => 'Une cargaison en cours ne peut pas être ouverte.']);
+                            exit;
+                        }
+                       
+                        
                     } else {
                         // Retourner une réponse d'erreur pour un état non reconnu
                         echo json_encode(['success' => false, 'message' => 'État non reconnu.']);

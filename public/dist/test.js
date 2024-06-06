@@ -302,41 +302,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(filteredCargaisons);
             displayCargos(filteredCargaisons);
             afficherDetails();
-            /*       // const tbody = document.getElementById('tbody');
-                  // if (tbody) {
-                  //   tbody.innerHTML = '';
-                  //   filteredCargaisons.forEach(cargaison => {
-                  //     tbody.innerHTML += `
-                  //     <tr class="bg-white hover:bg-gray-100 transition duration-300 ease-in-out">
-                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.numero}</td>
-                  //     <td class="border px-4 py-2 text-gray-600">${cargaison.typeCargaison}</td>
-                  //     <td class="border px-4 py-2">
-                  //     <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full">${cargaison.distance}</span>
-                  //     <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full"></span>
-                  //     </td>
-                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.lieuDepart}</td>
-                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.lieuArrivee}</td>
-                  //     <td class="border px-4 py-2">
-                  //     <span
-                  //     class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">${cargaison.etatGlobal}</span>
-                  //     </td>
-                  //     <td class="border px-4 py-2">
-                  //     <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full">${cargaison.etatAvancement}</span>
-                  //     </td>
-                  //     <td class="border px-4 py-2">
-                  //     <div class="w-full bg-gray-200 rounded-full h-10 relative">
-                  //             <div class="bg-purple-600 h-10 rounded-full flex justify-center items-center"
-                  //                 style="width: 80%">
-                  //                 <span class="font-bold text-center text-white">80%</span>
-                  //                 </div>
-                  //                 </div>
-                  //     </td>
-                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.DateDepart}</td>
-                  //     <td class="border px-4 py-2 text-purple-600 font-bold">${cargaison.DateArrivee}</td>
-                  // </tr>
-                  //     `;
-                  //   });
-                  // } */
         });
     });
     // Initially display all cargaisons
@@ -429,6 +394,7 @@ function displayCargos(cargaisons) {
     <option value="EnAttente"> EnAttente</option>
     <option value="Encours">Encours</option>
     <option value="Terminer">Terminer</option>
+    <option value="Perdue">Perdue</option>
   
   </select>
 </form>
@@ -534,7 +500,14 @@ function updateEtat(codeCargo, etatGlobal) {
     })
         .then(response => response.json())
         .then(data => {
-        alert(data.message);
+        /* alert(data.message); */
+        Swal.fire({
+            /*  title: "Good job!", */
+            text: data.message,
+            /*  icon: "error", */
+            showConfirmButton: false,
+            timer: 2000,
+        });
         loadCargos(); // Mettre à jour la liste des cargaisons
     })
         .catch(error => console.log('Error:', error));
@@ -634,3 +607,11 @@ if (nextButton) {
         });
     });
 }
+//valider le champs du formulaires
+const valider = new Validateur("#produits-form");
+valider.ajouterRegle("numero", new ChampsRequiseRegle("Le libellé de la cargaison est requis"), new RegleNonNumerique(), new RefleLongueurMin(5), new RefleLongueurMax(50));
+valider.ajouterRegle("type-produit", new ChampsRequiseRegle("Le lieu de départ est requis"));
+valider.ajouterRegle("form-validity-input", new ChampsRequiseRegle("La distance est requise"));
+valider.ajouterRegle("form-toxicity-input", new ChampsRequiseRegle("Le lieu de départ est requis"));
+valider.ajouterRegle("orm-discount-input", new ChampsRequiseRegle("Le lieu d'arrivée est requis"));
+valider.ajouterRegle("form-validity-input", new ChampsRequiseRegle("Le lieu d'arrivée est requis"));
