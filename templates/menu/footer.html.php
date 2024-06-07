@@ -72,6 +72,12 @@
         <input type="text" id="numero" name="numero" class="w-full p-2 border rounded-md" />
         <div id="error-numero" class="text-red-500"></div>  
     </div>
+    <div class="mb-4">
+        <label class="block text-black mb-2">PoidsMax</label>
+        <span class="error" id="errorNumero">le champs est requis</span>
+        <input type="text" id="PoidsMax" name="PoidsMax" class="w-full p-2 border rounded-md" />
+        <div id="error-numero" class="text-red-500"></div>  
+    </div>
     <div class="mb-2">
         <label class="block text-black mb-2">Lieu de Départ</label>
         <span class="error" id="errorLieuDepart"></span>

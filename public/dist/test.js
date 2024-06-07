@@ -60,7 +60,7 @@ submit.addEventListener("click", (event) => __awaiter(void 0, void 0, void 0, fu
           valider.ajouterRegle('quantite', new RegleNombre(), new ReglePoids(1, 99999)); */
     valider.validerEtTraiterFormulaire;
     const cargaison = {
-        poidsMax: Number(formData.get("poidsMax")),
+        PoidsMax: Number(formData.get("PoidsMax")),
         produits: [],
         prixTotal: Number(formData.get("prixTotal")),
         lieuDepart: formData.get("lieuDepart"),
@@ -74,6 +74,7 @@ submit.addEventListener("click", (event) => __awaiter(void 0, void 0, void 0, fu
         cargaisonPleine: formData.get("cargaisonPleine"),
         codeCargo: "SAER" + Math.floor(Math.random() * 100),
     };
+    console.log(cargaison);
     if (!numero) {
         showError("numero", "Veuillez saisir un numéro de cargaison");
         return;
@@ -551,10 +552,18 @@ function getProduct() {
             console.log(formDataObj);
             console.log(id);
             let index = db.findIndex((el) => el.codeCargo === id);
-            console.log(index);
-            if (index !== -1) {
-                db[index].produits.push(formDataObj);
+            if (db[index].cargaisonPleine == "parProduits") {
+                if (db[index].produits.length < db[index].poidsMax) {
+                    db[index].produits.push(formDataObj);
+                }
+                else {
+                    alert('cargo pleine');
+                }
             }
+            /*   console.log(index);
+              if (index !== -1) {
+                db[index].produits.push(formDataObj);
+              } */
             console.log(db);
             fetchAll();
         }

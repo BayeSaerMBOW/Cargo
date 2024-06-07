@@ -368,8 +368,8 @@
         "lieuArrivee": "Lieu inconnu (71.76706746403704, -41.13281250000001)",
         "distance": 3166.36,
         "typeCargaison": "A\u00e9rienne",
-        "etatAvancement": "Perdue",
-        "etatGlobal": "Ferme",
+        "etatAvancement": "Encours",
+        "etatGlobal": "Ouvert",
         "DateDepart": "2004-06-08",
         "DateArrivee": "1983-08-31",
         "codeCargo": "SAER40"
@@ -422,7 +422,7 @@
         "lieuArrivee": "Bimbwi (-5.932972207945653, 26.894531250000004)",
         "distance": 1695,
         "typeCargaison": "Routi\u00e8re",
-        "etatAvancement": "Terminer",
+        "etatAvancement": "Encours",
         "etatGlobal": "Ouvert",
         "DateDepart": "1996-12-07",
         "DateArrivee": "2007-05-31",
@@ -712,5 +712,87 @@
         "DateArrivee": "2024-11-25",
         "cargaisonPleine": "parPoids",
         "codeCargo": "SAER59"
+    },
+    {
+        "poidsMax": 0,
+        "produits": [],
+        "prixTotal": 0,
+        "lieuDepart": "Lieu inconnu (-12.178964957906539, 30.593336270632726)",
+        "lieuArrivee": "Medilaram (13.613956026341468, 12.327173959766176)",
+        "distance": 3504.33,
+        "typeCargaison": "Routi\u00e8re",
+        "etatAvancement": "En cours",
+        "etatGlobal": "ferme",
+        "DateDepart": "2011-04-10",
+        "DateArrivee": "1982-09-28",
+        "cargaisonPleine": "parProduits",
+        "codeCargo": "SAER61"
+    },
+    {
+        "poidsMax": 1,
+        "produits": [
+            {
+                "typeproduit": "alimentaire",
+                "validity": [
+                    "331",
+                    "354"
+                ],
+                "discount": "2",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "Giselle Miles",
+                "client-lastname": "Erickson",
+                "client-address": "Est quis dolor amet",
+                "client-phone": "+1 (281) 568-3535",
+                "client-email": "zugyf@mailinator.com",
+                "recipient-name": "Christian Case",
+                "recipient-lastname": "Shaffer",
+                "recipient-address": "Et recusandae Sed m",
+                "recipient-phone": "+1 (187) 211-2803",
+                "recipient-email": "kano@mailinator.com",
+                "product": "product"
+            }
+        ],
+        "prixTotal": 0,
+        "lieuDepart": "Lieu inconnu (-12.178964957906539, 30.593336270632726)",
+        "lieuArrivee": "Medilaram (13.613956026341468, 12.327173959766176)",
+        "distance": 3504.33,
+        "typeCargaison": "Routi\u00e8re",
+        "etatAvancement": "En cours",
+        "etatGlobal": "ferme",
+        "DateDepart": "2011-04-10",
+        "DateArrivee": "1982-09-28",
+        "cargaisonPleine": "parProduits",
+        "codeCargo": "SAER60"
+    },
+    {
+        "poidsMax": 0,
+        "produits": [],
+        "prixTotal": 0,
+        "lieuDepart": "Lieu inconnu (-9.44906182688142, 27.78025597489686)",
+        "lieuArrivee": "Lieu inconnu (7.013667927566642, 21.80862598865198)",
+        "distance": 1946.45,
+        "typeCargaison": "A\u00e9rienne",
+        "etatAvancement": "Terminer",
+        "etatGlobal": "ferme",
+        "DateDepart": "2020-01-23",
+        "DateArrivee": "2018-07-30",
+        "cargaisonPleine": "parPoids",
+        "codeCargo": "SAER80"
+    },
+    {
+        "PoidsMax": 56,
+        "produits": [],
+        "prixTotal": 0,
+        "lieuDepart": "Lieu inconnu (22.917922936146045, 19.683873151650637)",
+        "lieuArrivee": "Lieu inconnu (16.97274101999902, -3.50010208906465)",
+        "distance": 2508.51,
+        "typeCargaison": "A\u00e9rienne",
+        "etatAvancement": "En cours",
+        "etatGlobal": "Ouvert",
+        "DateDepart": "2007-09-10",
+        "DateArrivee": "2001-06-27",
+        "cargaisonPleine": "parPoids",
+        "codeCargo": "SAER9"
     }
 ]

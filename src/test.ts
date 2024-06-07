@@ -101,7 +101,7 @@ submit.addEventListener("click", async (event) => {
 
 
   const cargaison = {
-    poidsMax: Number(formData.get("poidsMax")),
+    PoidsMax: Number(formData.get("PoidsMax")),
     produits: [],
     prixTotal: Number(formData.get("prixTotal")),
     lieuDepart: formData.get("lieuDepart") as string,
@@ -115,6 +115,8 @@ submit.addEventListener("click", async (event) => {
     cargaisonPleine: formData.get("cargaisonPleine") as string,
     codeCargo: "SAER" + Math.floor(Math.random() * 100),
   };
+  console.log(cargaison);
+  
 
   if (!numero) {
     showError("numero", "Veuillez saisir un numéro de cargaison");
@@ -675,10 +677,19 @@ async function getProduct() {
     console.log(id);
     
     let index = db.findIndex((el: any) => el.codeCargo === id);
-    console.log(index);
+    
+    
+    if(db[index].cargaisonPleine=="parProduits") {
+      if(db[index].produits.length<db[index].poidsMax){
+        db[index].produits.push(formDataObj);
+      }else{
+        alert('cargo pleine')
+      }
+    }
+  /*   console.log(index);
     if (index !== -1) {
       db[index].produits.push(formDataObj);
-    }
+    } */
 
     console.log(db);
 

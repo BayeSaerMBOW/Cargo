@@ -143,7 +143,7 @@ try {
                         }
                                      if ($cargo['etatGlobal'] == 'Ferme' && $cargo['etatAvancement'] === 'Encours') {
                             echo json_encode(['success' => false, 'message' => 'Une cargaison en cours ne peut pas être fermée.']);
-                            sendMail(); 
+                            /* sendMail();  */
                             exit;
                         }
                      
