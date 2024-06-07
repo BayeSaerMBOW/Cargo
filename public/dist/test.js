@@ -71,6 +71,7 @@ submit.addEventListener("click", (event) => __awaiter(void 0, void 0, void 0, fu
         etatGlobal: formData.get("etatGlobal"),
         DateDepart: formData.get("DateDepart"),
         DateArrivee: formData.get("DateArrivee"),
+        cargaisonPleine: formData.get("cargaisonPleine"),
         codeCargo: "SAER" + Math.floor(Math.random() * 100),
     };
     if (!numero) {
@@ -375,18 +376,18 @@ function displayCargos(cargaisons) {
       <td class="border px-4 py-2 text-purple-600 font-bold">${cargo.DateArrivee}</td>
       <td class="border px-4 py-2">
         <div style="display:flex; gap:4; w-20">
-          <button class="bg-purple-500 hover:bg-purple-700 w-10 h-20 text-white font-bold py-2 px-4 rounded saer" data-id="${cargo.codeCargo}">
-            Ajouter produit
-          </button>
-          <button class=" bg-yellow-100 hover:bg-green-700  w-10 h-20 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ouvert')">
-            Ouvert
-          </button>
-          <button class="bg-red-500 hover:bg-red-700  w-10 h-20 text-white font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ferme')">
-            Ferme
-          </button>
-          <button id="details" data-code="${cargo.codeCargo}"  data-modal-target="default-modal"   data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-10 h-20" type="button">
-          DETAILS
+        <button class="bg-white hover:bg-purple-700 w-10 h-20 text-black font-bold py-2 px-4 rounded saer" data-id="${cargo.codeCargo}">
+        <i class="fas fa-plus"></i>
     </button>
+    <button class="bg-white hover:bg-green-700 w-10 h-20 text-black font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ouvert')">
+    <i class="fas fa-lock-open"></i>
+</button>
+<button class=" bg-white hover:bg-red-500 w-10 h-20 text-black font-bold py-2 px-4" onclick="updateEtat('${cargo.codeCargo}', 'Ferme')">
+<i class="fas fa-lock"></i> 
+</button>
+<button id="details" data-code="${cargo.codeCargo}" data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-10 h-20" type="button">
+    <i class="fas fa-info-circle"></i>
+</button>
     <form class="max-w-sm mx-auto">
  
   <select id="etat" data-code="${cargo.codeCargo}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-10 h-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -615,3 +616,4 @@ valider.ajouterRegle("form-validity-input", new ChampsRequiseRegle("La distance 
 valider.ajouterRegle("form-toxicity-input", new ChampsRequiseRegle("Le lieu de départ est requis"));
 valider.ajouterRegle("orm-discount-input", new ChampsRequiseRegle("Le lieu d'arrivée est requis"));
 valider.ajouterRegle("form-validity-input", new ChampsRequiseRegle("Le lieu d'arrivée est requis"));
+//validateur champ produit

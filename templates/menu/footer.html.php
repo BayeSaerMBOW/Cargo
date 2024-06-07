@@ -132,9 +132,18 @@
         <input type="date" name="DateArrivee" id="DateArrivee" class="w-full p-2 border rounded-md" required />
         <div id="error-DateArrivee" class="text-red-500"></div> 
     </div>
+    <div class="mb-2">
+        <label class="block text-black mb-2">Cargaison Pleine</label>
+        <select name="cargaisonPleine" id="cargaisonPleine" class="w-full p-2 border rounded-md">
+            <option value="parPoids">par poids</option>
+            <option value="parProduits">par produits</option>
+        </select>
+    </div>
     <div class="col-span-2">
         <button type="submit" id="Enregistrer" class="w-full bg-blue-500 text-white p-2 rounded-lg">Enregistrer</button>
     </div>
+   
+
 </form>
 
 </div>

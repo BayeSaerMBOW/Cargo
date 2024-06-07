@@ -1,7 +1,57 @@
 <?php
+
+ ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL); 
+
+require '../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 header('Content-Type: application/json');
 
 
+// Créer une nouvelle instance de PHPMailer
+function sendMail(){
+    $mail = new PHPMailer(true);
+
+    try {
+        // Paramètres du serveur
+         $mail->SMTPDebug = 0;                                        // Activer le débogage SMTP (0 pour désactiver)
+        $mail->isSMTP();                                             // Utiliser SMTP
+        $mail->Host       = 'smtp.gmail.com';                      // Spécifier le serveur SMTP principal et de secours
+        $mail->SMTPAuth   = true;                                    // Activer l'authentification SMTP
+        $mail->Username   = 'saermbow070@gmail.com';               // Nom d'utilisateur SMTP
+        $mail->Password   = 'zdos nbkv jknd acqy';                    // Mot de passe SMTP
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;          // Activer le chiffrement TLS
+        $mail->Port       = 587;                                     // Port TCP à utiliser
+    
+         //Destinataires
+        $mail->setFrom('saermbow070@gmail.com', 'Saermbow');
+        $mail->addAddress('diariatou591@gmail.com', 'Diary DIOP');    // Ajouter un destinataire
+        // $mail->addAddress('destinataire2@example.com');                       // Ajouter un autre destinataire
+        // $mail->addReplyTo('info@example.com', 'Information');
+        // $mail->addCC('cc@example.com');
+        // $mail->addBCC('bcc@example.com');
+    
+        // Pièces jointes (facultatif)
+        // $mail->addAttachment('/path/to/file.jpg');         // Ajouter une pièce jointe
+        // $mail->addAttachment('/path/to/file.zip', 'nom.zip');    // Ajouter une pièce jointe avec un nom personnalisé
+    
+        // Contenu
+        $mail->isHTML(true);                                  // Définir le format de l'email en HTML
+        $mail->Subject = 'Voici le sujet';
+        $mail->Body    = 'je taime <b>en cours</b> est arrivé';
+        $mail->AltBody = 'Voici le corps du message en texte brut pour les clients non-HTML';
+    
+        $mail->send();
+        echo 'Le message a été envoyé avec succès';
+    } catch (Exception $e) {
+        echo "Le message n'a pas pu être envoyé. Erreur: {$mail->ErrorInfo}";
+    } 
+    
+}
+ 
 // Path to data.json file
 $dataFile = __DIR__ . '/dist/data.json';
 
@@ -68,29 +118,32 @@ try {
                         error_log("Cargo EtatGlobal: " . strtolower($cargo['etatGlobal']));
                         if ($newEtat == 'ferme' && ($currentEtat == 'ferme' || strtolower($cargo['etatGlobal']) == 'perdue')) {
                             echo json_encode(['success' => false, 'message' => 'Une cargaison fermée ou perdue ne peut pas être fermée ni ouverte à nouveau.']);
+                           /*  sendMail(); */
                             exit;
                         }
                         if ($newEtat == 'ouvert' && ($currentEtat == 'ouvert' || strtolower($cargo['etatGlobal']) == 'perdue')) {
                             echo json_encode(['success' => false, 'message' => 'Une cargaison fermée ou perdue ne peut pas être fermée ni ouverte à nouveau.']);
+                           /*  sendMail(); */
                             exit;
-                        }
-                        if ($newEtat == 'ouvert' && ($currentEtat == 'ferme' || strtolower($cargo['etatGlobal']) == 'perdue')) {
+                        } 
+                        /*  if ($newEtat == 'ouvert' && ($currentEtat == 'ferme' || strtolower($cargo['etatGlobal']) == 'perdue')) {
                             echo json_encode(['success' => false, 'message' => 'Une cargaison fermée ou perdue ne peut pas être fermée ni ouverte à nouveau.']);
                             exit;
-                        }
+                        }   */
                         // Vérifier si l'état actuel est déjà le même que le nouvel état
                         if ($currentEtat === 'ferme' && $newEtat === 'ferme') {
                             echo json_encode(['success' => false, 'message' => 'La cargaison est déjà fermée.']);
                             exit;
                         } elseif ($currentEtat === 'ouvert' && $newEtat === 'ouvert') {
                             echo json_encode(['success' => false, 'message' => 'La cargaison est déjà ouverte.']);
-                            exit;
+                              exit;
                         } else {
                             // Mettre à jour l'état de la cargaison
                             $cargo['etatGlobal'] = $etat;
                         }
                                      if ($cargo['etatGlobal'] == 'Ferme' && $cargo['etatAvancement'] === 'Encours') {
                             echo json_encode(['success' => false, 'message' => 'Une cargaison en cours ne peut pas être fermée.']);
+                            sendMail(); 
                             exit;
                         }
                      
@@ -118,7 +171,7 @@ try {
                 break;
             }
         }
-
+        
       
         if ($updated) {
             try {
@@ -137,4 +190,5 @@ try {
     echo json_encode(['success' => false, 'message' => 'Erreur lors de la lecture du fichier JSON: ' . $e->getMessage()]);
     exit;
 }
+
 ?>

@@ -7,6 +7,8 @@
     <script src="https://kit.fontawesome.com/d2ba3c872c.js" crossorigin="anonymous"></script>
     <!-- <script src="/var/www/html/projetScript/public/dist/test.js" type="module" defer></script> -->
     <script defer src="../../dist/test.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>

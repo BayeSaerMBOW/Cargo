@@ -255,3 +255,4 @@ class Validateur {
 
 // Export des classes et des règles
 export { Validateur, ChampsRequiseRegle, ReglePoids, RegleSelect, RefleLongueurMin, RefleLongueurMax, RegleNonNumerique, RegleNombre };
+//!§§§

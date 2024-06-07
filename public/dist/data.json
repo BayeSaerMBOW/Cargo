@@ -121,6 +121,48 @@
                 "recipient-phone": "",
                 "recipient-email": "",
                 "product": "product"
+            },
+            {
+                "typeproduit": "materielle",
+                "validity": [
+                    "131",
+                    "218"
+                ],
+                "discount": "69",
+                "toxicity": "",
+                "type-materiel": "incassable",
+                "client-name": "Amos Burnett",
+                "client-lastname": "Boyd",
+                "client-address": "Et dignissimos provi",
+                "client-phone": "+1 (594) 886-3246",
+                "client-email": "wojabakip@mailinator.com",
+                "recipient-name": "Tallulah Bates",
+                "recipient-lastname": "Wong",
+                "recipient-address": "Deserunt maiores cum",
+                "recipient-phone": "+1 (981) 527-9428",
+                "recipient-email": "teceby@mailinator.com",
+                "product": "product"
+            },
+            {
+                "typeproduit": "materielle",
+                "validity": [
+                    "131",
+                    "218"
+                ],
+                "discount": "69",
+                "toxicity": "",
+                "type-materiel": "incassable",
+                "client-name": "Amos Burnett",
+                "client-lastname": "Boyd",
+                "client-address": "Et dignissimos provi",
+                "client-phone": "+1 (594) 886-3246",
+                "client-email": "wojabakip@mailinator.com",
+                "recipient-name": "Tallulah Bates",
+                "recipient-lastname": "Wong",
+                "recipient-address": "Deserunt maiores cum",
+                "recipient-phone": "+1 (981) 527-9428",
+                "recipient-email": "teceby@mailinator.com",
+                "product": "product"
             }
         ],
         "prixTotal": 0,
@@ -129,7 +171,7 @@
         "distance": 1408.9,
         "typeCargaison": "Maritime",
         "etatAvancement": "Perdue",
-        "etatGlobal": "Ferme",
+        "etatGlobal": "Ouvert",
         "DateDepart": "2024-06-11",
         "DateArrivee": "2024-06-26",
         "codeCargo": "SAER30"
@@ -380,8 +422,8 @@
         "lieuArrivee": "Bimbwi (-5.932972207945653, 26.894531250000004)",
         "distance": 1695,
         "typeCargaison": "Routi\u00e8re",
-        "etatAvancement": "Perdue",
-        "etatGlobal": "Ferme",
+        "etatAvancement": "Terminer",
+        "etatGlobal": "Ouvert",
         "DateDepart": "1996-12-07",
         "DateArrivee": "2007-05-31",
         "codeCargo": "SAER34"
@@ -467,7 +509,7 @@
         "lieuArrivee": "Lieu inconnu (9.102096738726456, 24.082031250000004)",
         "distance": 0,
         "typeCargaison": "Maritime",
-        "etatAvancement": "Encours",
+        "etatAvancement": "EnAttente",
         "etatGlobal": "Ferme",
         "DateDepart": "1971-12-25",
         "DateArrivee": "2019-02-20",
@@ -628,10 +670,47 @@
         "lieuArrivee": "Lieu inconnu (19.010190294396075, 8.964843750000002)",
         "distance": 618.22,
         "typeCargaison": "Maritime",
-        "etatAvancement": "Perdue",
+        "etatAvancement": "EnAttente",
         "etatGlobal": "Ouvert",
         "DateDepart": "2024-07-12",
         "DateArrivee": "2024-06-12",
         "codeCargo": "SAER77"
+    },
+    {
+        "poidsMax": 0,
+        "produits": [
+            {
+                "typeproduit": "materielle",
+                "validity": [
+                    "237",
+                    "319"
+                ],
+                "discount": "65",
+                "toxicity": "",
+                "type-materiel": "fragile",
+                "client-name": "Kellie Wiggins",
+                "client-lastname": "Oneil",
+                "client-address": "Debitis anim dolorem",
+                "client-phone": "+1 (243) 704-6663",
+                "client-email": "vuniho@mailinator.com",
+                "recipient-name": "Nolan Morin",
+                "recipient-lastname": "Lara",
+                "recipient-address": "Possimus autem veli",
+                "recipient-phone": "+1 (742) 804-5636",
+                "recipient-email": "hyvadegan@mailinator.com",
+                "product": "product"
+            }
+        ],
+        "prixTotal": 0,
+        "lieuDepart": "Lieu inconnu (-29.812050767525047, 27.597656250000004)",
+        "lieuArrivee": "Lieu inconnu (0.38451859794901677, 27.597656250000004)",
+        "distance": 3357.71,
+        "typeCargaison": "Maritime",
+        "etatAvancement": "Perdue",
+        "etatGlobal": "Ouvert",
+        "DateDepart": "2024-06-25",
+        "DateArrivee": "2024-11-25",
+        "cargaisonPleine": "parPoids",
+        "codeCargo": "SAER59"
     }
 ]
